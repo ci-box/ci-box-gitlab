@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  gitlab:
+    image: 'gitlab/gitlab-ce:latest'
+    container_name: gitlab
+    hostname: gitlab
+    restart: always
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://gitlab:4080'
+        # Add any other gitlab.rb configuration here, each on its own line
+    ports:
+      - '4080:80'
+      - '4443:443'
+      - '4022:22'
